@@ -1,0 +1,144 @@
+{
+  "configuration" : {
+    "scope" : "SoftwareSystem"
+  },
+  "description" : "Description",
+  "documentation" : { },
+  "id" : 1,
+  "lastModifiedDate" : "2026-10-05T19:13:45Z",
+  "model" : {
+    "people" : [ {
+      "id" : "1",
+      "name" : "Dude",
+      "properties" : {
+        "structurizr.dsl.identifier" : "u"
+      },
+      "relationships" : [ {
+        "description" : "Uses",
+        "destinationId" : "3",
+        "id" : "5",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Uses",
+        "destinationId" : "2",
+        "id" : "6",
+        "linkedRelationshipId" : "5",
+        "sourceId" : "1"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "containers" : [ {
+        "documentation" : { },
+        "id" : "3",
+        "name" : "Web Application",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.wa"
+        },
+        "relationships" : [ {
+          "description" : "Reads from and writes to",
+          "destinationId" : "4",
+          "id" : "7",
+          "sourceId" : "3",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container"
+      }, {
+        "documentation" : { },
+        "id" : "4",
+        "name" : "Database Schema",
+        "properties" : {
+          "structurizr.dsl.identifier" : "ss.db"
+        },
+        "tags" : "Element,Container,Database"
+      } ],
+      "documentation" : { },
+      "id" : "2",
+      "name" : "Software System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "ss"
+      },
+      "tags" : "Element,Software System"
+    } ]
+  },
+  "name" : "Name",
+  "properties" : {
+    "structurizr.inspection.error" : "11",
+    "structurizr.dsl" : "d29ya3NwYWNlICJOYW1lIiAiRGVzY3JpcHRpb24iIHsKCQoJIWlkZW50aWZpZXJzIGhpZXJhcmNoaWNhbAoJCgltb2RlbCB7CgkJdSA9IHBlcnNvbiAiRHVkZSIKCQlzcyA9IHNvZnR3YXJlU3lzdGVtICJTb2Z0d2FyZSBTeXN0ZW0iIHsKCQkJd2EgPSBjb250YWluZXIgIldlYiBBcHBsaWNhdGlvbiIKCQkJZGIgPSBjb250YWluZXIgIkRhdGFiYXNlIFNjaGVtYSIgewoJCQkJdGFncyAiRGF0YWJhc2UiCgkJCX0KCQl9CgkJCgkJdSAtPiBzcy53YSAiVXNlcyIKCQlzcy53YSAtPiBzcy5kYiAiUmVhZHMgZnJvbSBhbmQgd3JpdGVzIHRvIgoJfQoJCgl2aWV3cyB7CgkJc3lzdGVtQ29udGV4dCBzcyAiRGlhZ3JhbTEiIHsKCQkJaW5jbHVkZSAqCgkJfQoJCQoJCWNvbnRhaW5lciBzcyAiRGlhZ3JhbTIiIHsKCQkJaW5jbHVkZSAqCgkJfQoJCQoJCXN0eWxlcyB7CgkJCWVsZW1lbnQgIkVsZW1lbnQiIHsKCQkJCWNvbG9yICNmODI4OWMKCQkJCXN0cm9rZSAjZjgyODljCgkJCQlzdHJva2VXaWR0aCA3CgkJCQlzaGFwZSByb3VuZGVkYm94CgkJCX0KCQkJZWxlbWVudCAiUGVyc29uIiB7CgkJCQlzaGFwZSBwZXJzb24KCQkJfQoJCQllbGVtZW50ICJEYXRhYmFzZSIgewoJCQkJc2hhcGUgY3lsaW5kZXIKCQkJfQoJCQllbGVtZW50ICJCb3VuZGFyeSIgewoJCQkJc3Ryb2tlV2lkdGggNQoJCQl9CgkJCXJlbGF0aW9uc2hpcCAiUmVsYXRpb25zaGlwIiB7CgkJCQl0aGlja25lc3MgNAoJCQl9CgkJfQoJfQoJCgljb25maWd1cmF0aW9uIHsKCQlzY29wZSBzb2Z0d2FyZXN5c3RlbQoJfQoJCn0=",
+    "structurizr.inspection.info" : "0",
+    "structurizr.inspection.ignore" : "0",
+    "structurizr.inspection.warning" : "0"
+  },
+  "views" : {
+    "configuration" : {
+      "styles" : {
+        "elements" : [ {
+          "strokeWidth" : 5,
+          "tag" : "Boundary"
+        }, {
+          "shape" : "Cylinder",
+          "tag" : "Database"
+        }, {
+          "color" : "#f8289c",
+          "shape" : "RoundedBox",
+          "stroke" : "#f8289c",
+          "strokeWidth" : 7,
+          "tag" : "Element"
+        }, {
+          "shape" : "Person",
+          "tag" : "Person"
+        } ],
+        "relationships" : [ {
+          "tag" : "Relationship",
+          "thickness" : 4
+        } ]
+      },
+      "terminology" : { }
+    },
+    "containerViews" : [ {
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "Diagram2",
+      "name" : "Container View: Software System",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "5"
+      }, {
+        "id" : "7"
+      } ],
+      "softwareSystemId" : "2"
+    } ],
+    "systemContextViews" : [ {
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "Diagram1",
+      "name" : "System Context View: Software System",
+      "order" : 1,
+      "relationships" : [ {
+        "id" : "6"
+      } ],
+      "softwareSystemId" : "2"
+    } ]
+  }
+}

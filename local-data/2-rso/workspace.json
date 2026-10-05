@@ -1,0 +1,403 @@
+{
+  "configuration" : { },
+  "description" : "A web-based DevOps lifecycle tool that provides a Git repository manager providing wiki, issue-tracking, and CI/CD pipeline features, using an open-source license",
+  "documentation" : { },
+  "id" : 2,
+  "lastModifiedDate" : "2026-10-05T19:13:27Z",
+  "model" : {
+    "people" : [ {
+      "description" : "A person who writes code",
+      "id" : "1",
+      "name" : "Coder",
+      "properties" : {
+        "structurizr.dsl.identifier" : "coder"
+      },
+      "relationships" : [ {
+        "description" : "Browses and contributes code",
+        "destinationId" : "3",
+        "id" : "14",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Browses code using",
+        "destinationId" : "4",
+        "id" : "15",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Pushes code to",
+        "destinationId" : "9",
+        "id" : "16",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Person"
+    }, {
+      "description" : "A person who maintains the system",
+      "id" : "2",
+      "name" : "System Administrator",
+      "properties" : {
+        "structurizr.dsl.identifier" : "system_administrator"
+      },
+      "relationships" : [ {
+        "description" : "Performs maintenance using",
+        "destinationId" : "4",
+        "id" : "17",
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Performs maintenance using",
+        "destinationId" : "3",
+        "id" : "18",
+        "linkedRelationshipId" : "17",
+        "sourceId" : "2"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "containers" : [ {
+        "description" : "A router that handles web requests and route them to the relevant code_browser",
+        "documentation" : { },
+        "id" : "4",
+        "name" : "Web Router",
+        "properties" : {
+          "structurizr.dsl.identifier" : "gitlab.web_router"
+        },
+        "relationships" : [ {
+          "description" : "Routes requests to",
+          "destinationId" : "5",
+          "id" : "19",
+          "sourceId" : "4",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Routes /admin/* requests to",
+          "destinationId" : "6",
+          "id" : "20",
+          "sourceId" : "4",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container"
+      }, {
+        "documentation" : { },
+        "id" : "5",
+        "name" : "Code Browser Web UI",
+        "properties" : {
+          "structurizr.dsl.identifier" : "gitlab.code_browser"
+        },
+        "relationships" : [ {
+          "description" : "Authenticates users using",
+          "destinationId" : "8",
+          "id" : "23",
+          "sourceId" : "5",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Reads from",
+          "destinationId" : "10",
+          "id" : "24",
+          "sourceId" : "5",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container"
+      }, {
+        "description" : "A web interface for administrators to manage the system",
+        "documentation" : { },
+        "id" : "6",
+        "name" : "Admin Web UI",
+        "properties" : {
+          "structurizr.dsl.identifier" : "gitlab.admin_ui"
+        },
+        "relationships" : [ {
+          "description" : "Authenticates admin users using",
+          "destinationId" : "8",
+          "id" : "21",
+          "sourceId" : "6",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container"
+      }, {
+        "description" : "A database that stores user information",
+        "documentation" : { },
+        "id" : "7",
+        "name" : "User Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "gitlab.user_db"
+        },
+        "tags" : "Element,Container,Database"
+      }, {
+        "description" : "A service that authenticates users",
+        "documentation" : { },
+        "id" : "8",
+        "name" : "Authenticator",
+        "properties" : {
+          "structurizr.dsl.identifier" : "gitlab.authenticator"
+        },
+        "relationships" : [ {
+          "description" : "Reads from and writes to",
+          "destinationId" : "7",
+          "id" : "22",
+          "sourceId" : "8",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container"
+      }, {
+        "description" : "A server that handles SSH connections",
+        "documentation" : { },
+        "id" : "9",
+        "name" : "SSH Server",
+        "properties" : {
+          "structurizr.dsl.identifier" : "gitlab.ssh_server"
+        },
+        "relationships" : [ {
+          "description" : "Uses",
+          "destinationId" : "10",
+          "id" : "28",
+          "sourceId" : "9",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container"
+      }, {
+        "description" : "A backend service that manages code repositories",
+        "documentation" : { },
+        "id" : "10",
+        "name" : "Repository Backend",
+        "properties" : {
+          "structurizr.dsl.identifier" : "gitlab.repository_backend"
+        },
+        "relationships" : [ {
+          "description" : "Reads from and writes to",
+          "destinationId" : "11",
+          "id" : "25",
+          "sourceId" : "10",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Authenticates users using",
+          "destinationId" : "8",
+          "id" : "26",
+          "sourceId" : "10",
+          "tags" : "Relationship"
+        }, {
+          "description" : "Sends \"new commit\" notifications using",
+          "destinationId" : "12",
+          "id" : "27",
+          "sourceId" : "10",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container"
+      }, {
+        "description" : "A database that stores code repositories",
+        "documentation" : { },
+        "id" : "11",
+        "name" : "Repository Database",
+        "properties" : {
+          "structurizr.dsl.identifier" : "gitlab.repository_db"
+        },
+        "tags" : "Element,Container,Database"
+      }, {
+        "description" : "Notifies users of events via email",
+        "documentation" : { },
+        "id" : "12",
+        "name" : "Email Notifier",
+        "properties" : {
+          "structurizr.dsl.identifier" : "gitlab.email_notifier"
+        },
+        "relationships" : [ {
+          "description" : "Sends emails using",
+          "destinationId" : "13",
+          "id" : "29",
+          "sourceId" : "12",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container"
+      } ],
+      "documentation" : { },
+      "id" : "3",
+      "name" : "GitLab",
+      "properties" : {
+        "structurizr.dsl.identifier" : "gitlab"
+      },
+      "relationships" : [ {
+        "description" : "Sends emails using",
+        "destinationId" : "13",
+        "id" : "30",
+        "linkedRelationshipId" : "29",
+        "sourceId" : "3"
+      } ],
+      "tags" : "Element,Software System"
+    }, {
+      "documentation" : { },
+      "id" : "13",
+      "name" : "Mail Server",
+      "properties" : {
+        "structurizr.dsl.identifier" : "mail_server"
+      },
+      "tags" : "Element,Software System,External"
+    } ]
+  },
+  "name" : "GitLab",
+  "properties" : {
+    "structurizr.inspection.error" : "32",
+    "structurizr.dsl" : "d29ya3NwYWNlICJHaXRMYWIiICJBIHdlYi1iYXNlZCBEZXZPcHMgbGlmZWN5Y2xlIHRvb2wgdGhhdCBwcm92aWRlcyBhIEdpdCByZXBvc2l0b3J5IG1hbmFnZXIgcHJvdmlkaW5nIHdpa2ksIGlzc3VlLXRyYWNraW5nLCBhbmQgQ0kvQ0QgcGlwZWxpbmUgZmVhdHVyZXMsIHVzaW5nIGFuIG9wZW4tc291cmNlIGxpY2Vuc2UiIHsKCQoJIWlkZW50aWZpZXJzIGhpZXJhcmNoaWNhbAoJCgltb2RlbCB7CgkJY29kZXIgPSBwZXJzb24gIkNvZGVyIiB7CgkJCWRlc2NyaXB0aW9uICJBIHBlcnNvbiB3aG8gd3JpdGVzIGNvZGUiCgkJfQoJCXN5c3RlbV9hZG1pbmlzdHJhdG9yID0gcGVyc29uICJTeXN0ZW0gQWRtaW5pc3RyYXRvciIgewoJCQlkZXNjcmlwdGlvbiAiQSBwZXJzb24gd2hvIG1haW50YWlucyB0aGUgc3lzdGVtIgoJCX0KCQlnaXRsYWIgPSBzb2Z0d2FyZVN5c3RlbSAiR2l0TGFiIiB7CgkJCXdlYl9yb3V0ZXIgPSBjb250YWluZXIgIldlYiBSb3V0ZXIiIHsKCQkJCWRlc2NyaXB0aW9uICJBIHJvdXRlciB0aGF0IGhhbmRsZXMgd2ViIHJlcXVlc3RzIGFuZCByb3V0ZSB0aGVtIHRvIHRoZSByZWxldmFudCBjb2RlX2Jyb3dzZXIiCgkJCX0KCQkJY29kZV9icm93c2VyID0gY29udGFpbmVyICJDb2RlIEJyb3dzZXIgV2ViIFVJIgoJCQlhZG1pbl91aSA9IGNvbnRhaW5lciAiQWRtaW4gV2ViIFVJIiB7CgkJCQlkZXNjcmlwdGlvbiAiQSB3ZWIgaW50ZXJmYWNlIGZvciBhZG1pbmlzdHJhdG9ycyB0byBtYW5hZ2UgdGhlIHN5c3RlbSIKCQkJfQoJCQl1c2VyX2RiID0gY29udGFpbmVyICJVc2VyIERhdGFiYXNlIiB7CgkJCQlkZXNjcmlwdGlvbiAiQSBkYXRhYmFzZSB0aGF0IHN0b3JlcyB1c2VyIGluZm9ybWF0aW9uIgoJCQkJdGFncyAiRGF0YWJhc2UiCgkJCX0KCQkJYXV0aGVudGljYXRvciA9IGNvbnRhaW5lciAiQXV0aGVudGljYXRvciIgewoJCQkJZGVzY3JpcHRpb24gIkEgc2VydmljZSB0aGF0IGF1dGhlbnRpY2F0ZXMgdXNlcnMiCgkJCX0KCQkJc3NoX3NlcnZlciA9IGNvbnRhaW5lciAiU1NIIFNlcnZlciIgewoJCQkJZGVzY3JpcHRpb24gIkEgc2VydmVyIHRoYXQgaGFuZGxlcyBTU0ggY29ubmVjdGlvbnMiCgkJCX0KCQkJcmVwb3NpdG9yeV9iYWNrZW5kID0gY29udGFpbmVyICJSZXBvc2l0b3J5IEJhY2tlbmQiIHsKCQkJCWRlc2NyaXB0aW9uICJBIGJhY2tlbmQgc2VydmljZSB0aGF0IG1hbmFnZXMgY29kZSByZXBvc2l0b3JpZXMiCgkJCX0KCQkJcmVwb3NpdG9yeV9kYiA9IGNvbnRhaW5lciAiUmVwb3NpdG9yeSBEYXRhYmFzZSIgewoJCQkJZGVzY3JpcHRpb24gIkEgZGF0YWJhc2UgdGhhdCBzdG9yZXMgY29kZSByZXBvc2l0b3JpZXMiCgkJCQl0YWdzICJEYXRhYmFzZSIKCQkJfQoJCQllbWFpbF9ub3RpZmllciA9IGNvbnRhaW5lciAiRW1haWwgTm90aWZpZXIiIHsKCQkJCWRlc2NyaXB0aW9uICJOb3RpZmllcyB1c2VycyBvZiBldmVudHMgdmlhIGVtYWlsIgoJCQl9CgkJfQoJCW1haWxfc2VydmVyID0gc29mdHdhcmVTeXN0ZW0gIk1haWwgU2VydmVyIiB7CgkJCXRhZ3MgIkV4dGVybmFsIgoJCX0KCQljb2RlciAtPiBnaXRsYWIgIkJyb3dzZXMgYW5kIGNvbnRyaWJ1dGVzIGNvZGUiCgkJY29kZXIgLT4gZ2l0bGFiLndlYl9yb3V0ZXIgIkJyb3dzZXMgY29kZSB1c2luZyIKCQljb2RlciAtPiBnaXRsYWIuc3NoX3NlcnZlciAiUHVzaGVzIGNvZGUgdG8iCgkJc3lzdGVtX2FkbWluaXN0cmF0b3IgLT4gZ2l0bGFiLndlYl9yb3V0ZXIgIlBlcmZvcm1zIG1haW50ZW5hbmNlIHVzaW5nIgoJCWdpdGxhYi53ZWJfcm91dGVyIC0+IGdpdGxhYi5jb2RlX2Jyb3dzZXIgIlJvdXRlcyByZXF1ZXN0cyB0byIKCQlnaXRsYWIud2ViX3JvdXRlciAtPiBnaXRsYWIuYWRtaW5fdWkgIlJvdXRlcyAvYWRtaW4vKiByZXF1ZXN0cyB0byIKCQlnaXRsYWIuYWRtaW5fdWkgLT4gZ2l0bGFiLmF1dGhlbnRpY2F0b3IgIkF1dGhlbnRpY2F0ZXMgYWRtaW4gdXNlcnMgdXNpbmciCgkJZ2l0bGFiLmF1dGhlbnRpY2F0b3IgLT4gZ2l0bGFiLnVzZXJfZGIgIlJlYWRzIGZyb20gYW5kIHdyaXRlcyB0byIKCQlnaXRsYWIuY29kZV9icm93c2VyIC0+IGdpdGxhYi5hdXRoZW50aWNhdG9yICJBdXRoZW50aWNhdGVzIHVzZXJzIHVzaW5nIgoJCWdpdGxhYi5jb2RlX2Jyb3dzZXIgLT4gZ2l0bGFiLnJlcG9zaXRvcnlfYmFja2VuZCAiUmVhZHMgZnJvbSIKCQlnaXRsYWIucmVwb3NpdG9yeV9iYWNrZW5kIC0+IGdpdGxhYi5yZXBvc2l0b3J5X2RiICJSZWFkcyBmcm9tIGFuZCB3cml0ZXMgdG8iCgkJZ2l0bGFiLnJlcG9zaXRvcnlfYmFja2VuZCAtPiBnaXRsYWIuYXV0aGVudGljYXRvciAiQXV0aGVudGljYXRlcyB1c2VycyB1c2luZyIKCQlnaXRsYWIucmVwb3NpdG9yeV9iYWNrZW5kIC0+IGdpdGxhYi5lbWFpbF9ub3RpZmllciAiU2VuZHMgXCJuZXcgY29tbWl0XCIgbm90aWZpY2F0aW9ucyB1c2luZyIKCQlnaXRsYWIuc3NoX3NlcnZlciAtPiBnaXRsYWIucmVwb3NpdG9yeV9iYWNrZW5kICJVc2VzIgoJCWdpdGxhYi5lbWFpbF9ub3RpZmllciAtPiBtYWlsX3NlcnZlciAiU2VuZHMgZW1haWxzIHVzaW5nIgoJfQoJCgl2aWV3cyB7CgkJc3lzdGVtQ29udGV4dCBnaXRsYWIgIlN5c3RlbUNvbnRleHQiIHsKCQkJaW5jbHVkZSAqCgkJCWF1dG9sYXlvdXQgbHIKCQl9CgkJY29udGFpbmVyIGdpdGxhYiAiQ29udGFpbmVyRGlhZ3JhbSIgewoJCQlpbmNsdWRlICoKCQkJYXV0b2xheW91dCB0YgoJCX0KCQlzdHlsZXMgewoJCQllbGVtZW50ICJFbGVtZW50IiB7CgkJCQljb2xvciAjMDc3M2FmCgkJCQlzdHJva2UgIzA3NzNhZgoJCQkJc3Ryb2tlV2lkdGggNwoJCQkJc2hhcGUgcm91bmRlZGJveAoJCQl9CgkJCWVsZW1lbnQgIlBlcnNvbiIgewoJCQkJc2hhcGUgcGVyc29uCgkJCX0KCQkJZWxlbWVudCAiRGF0YWJhc2UiIHsKCQkJCXNoYXBlIGN5bGluZGVyCgkJCX0KCQkJZWxlbWVudCAiRXh0ZXJuYWwiIHsKCQkJCWJhY2tncm91bmQgIzk5OTk5OQoJCQkJY29sb3IgI2ZmZmZmZgoJCQkJc3Ryb2tlICM5OTk5OTkKCQkJCQoJCQl9CgkJCWVsZW1lbnQgIkJvdW5kYXJ5IiB7CgkJCQlzdHJva2VXaWR0aCA1CgkJCX0KCQl9Cgl9CgkKCWNvbmZpZ3VyYXRpb24gewoJCSMJCXNjb3BlIHNvZnR3YXJlc3lzdGVtCgl9Cn0=",
+    "structurizr.inspection.info" : "0",
+    "structurizr.inspection.ignore" : "0",
+    "structurizr.inspection.warning" : "0"
+  },
+  "views" : {
+    "configuration" : {
+      "lastSavedView" : "ContainerDiagram",
+      "styles" : {
+        "elements" : [ {
+          "strokeWidth" : 5,
+          "tag" : "Boundary"
+        }, {
+          "shape" : "Cylinder",
+          "tag" : "Database"
+        }, {
+          "color" : "#0773af",
+          "shape" : "RoundedBox",
+          "stroke" : "#0773af",
+          "strokeWidth" : 7,
+          "tag" : "Element"
+        }, {
+          "background" : "#999999",
+          "color" : "#ffffff",
+          "stroke" : "#999999",
+          "tag" : "External"
+        }, {
+          "shape" : "Person",
+          "tag" : "Person"
+        } ]
+      },
+      "terminology" : { }
+    },
+    "containerViews" : [ {
+      "automaticLayout" : {
+        "edgeSeparation" : 50,
+        "nodeSeparation" : 50,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 100,
+        "vertices" : true
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "5",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "6",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "7",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "8",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "9",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "10",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "11",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "12",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "13",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "ContainerDiagram",
+      "name" : "Container View: GitLab",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "15"
+      }, {
+        "id" : "16"
+      }, {
+        "id" : "17"
+      }, {
+        "id" : "19"
+      }, {
+        "id" : "20"
+      }, {
+        "id" : "21"
+      }, {
+        "id" : "22"
+      }, {
+        "id" : "23"
+      }, {
+        "id" : "24"
+      }, {
+        "id" : "25"
+      }, {
+        "id" : "26"
+      }, {
+        "id" : "27"
+      }, {
+        "id" : "28"
+      }, {
+        "id" : "29"
+      } ],
+      "softwareSystemId" : "3"
+    } ],
+    "systemContextViews" : [ {
+      "automaticLayout" : {
+        "edgeSeparation" : 50,
+        "nodeSeparation" : 50,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 100,
+        "vertices" : true
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "3",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "13",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "SystemContext",
+      "name" : "System Context View: GitLab",
+      "order" : 1,
+      "relationships" : [ {
+        "id" : "14"
+      }, {
+        "id" : "18"
+      }, {
+        "id" : "30"
+      } ],
+      "softwareSystemId" : "3"
+    } ]
+  }
+}
